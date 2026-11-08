@@ -1,0 +1,29 @@
+	LILHEX [0]
+
+lilhex0 is the first in a set of tools for making an OS. It is a handwritten
+selection of bytes (thought process can be read using the assembly listing
+in NOTES) which shall execute as an elf64 amd64 linux executable. It takes
+(via stdin) a set of hexedecimal values each followed by a whitespace
+(IMPORTANT NOTE: source files must end in whitespace) which shall be returned
+(via stdout) as literal bytes.
+
+The single exception to this input syntax is the comment, which begins with
+the ASCII character 0x23 "#", and ends with ASCII character 0x0A LF
+(line feed).
+
+Therefore, the file [ignore first tab of each line] which follows shall output
+"HI!" to the terminal, followed by a carriage return and line feed.
+
+	# HI!
+	48 49 21
+	# \r\n
+	0D 0A
+
+Note that non-comment non-hexdig characters shall be treated *AS THOUGH* they
+are ASCII hexadecimal digits. Thus the text 'GG' becomes:
+
+	ASCII 'G' == 0x47
+	0x47 -> 0x10
+	0x10 -> 0x00
+
+Which produced an invalid output, without explanation.

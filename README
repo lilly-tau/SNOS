@@ -1,0 +1,20 @@
+SNOS is meant to be my OS project built from handwritten tools. The general
+roadmap:
+
+[ ]	lilhex[0]	A simple program to take a source file of hexadecimal
+			values (and comments) and output a raw binary, from
+			stdin to stdout.
+[ ]	lilhex[1]	A port of lilhex[0] alongside the ability to define
+			values and use them in a term to declare the value,
+			name resolution occurs as a list of where each value
+			is stored. Basic expressions may be used in the
+			*declaration* of these expressions.
+[ ]	lilhex[2]	lilhex[1] including a small parameter stack and the
+			capacity to chain expressions together to determine
+			declaration values with a simpler construction.
+			Procedures may be created and executed wholly within
+			lilhex[2].
+[ ]	as[0]		May create a simple elf64 program with a single segment
+			whose type is defined at the top of the input program,
+			with a limited instruction set, allowing direct byte
+			output with DB.
